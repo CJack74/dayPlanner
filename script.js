@@ -1,6 +1,8 @@
+//Array for time of day
 var workHours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 var currentHour = moment().hour();
 
+//function for creating creating time blocks, input areas, and save buttons
 function Planner() {
 
     for(let i = 0; i < workHours.length; i++) {
@@ -24,11 +26,12 @@ function Planner() {
         textarea.attr("id", "textarea" + i);
         textarea.addClass("form-control");
 
-
+        //stores input in textarea
         var getTextArea = localStorage.getItem("textarea" + i);
         textarea.text(getTextArea);
         col2.append(textarea)
         
+        //creates save button
         var col3 = $("<div class = 'col-sm-2'>");
         var button = $("<button>");
         button.addClass("saveBtn");
