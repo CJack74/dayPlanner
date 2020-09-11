@@ -8,7 +8,7 @@ function Planner() {
     for(let i = 0; i < workHours.length; i++) {
 
         var row = $("<div class = 'row'>");
-        var col1 = $("<div class = 'col-sm-2'>");
+        var colTime = $("<div class = 'col-sm-2'>");
         var getHour = workHours[i] + " AM";
 
         if (workHours[i] >= 12) {
@@ -19,8 +19,8 @@ function Planner() {
             }
         }
 
-        col1.append(getHour);
-        var col2 = $("<div class = 'col-sm-8'>");
+        colTime.append(getHour);
+        var colText = $("<div class = 'col-sm-8'>");
 
         var textarea = $("<textarea>");
         textarea.attr("id", "textarea" + i);
@@ -29,16 +29,16 @@ function Planner() {
         //stores input in textarea
         var getTextArea = localStorage.getItem("textarea" + i);
         textarea.text(getTextArea);
-        col2.append(textarea)
+        colText.append(textarea)
         
         //creates save button
-        var col3 = $("<div class = 'col-sm-2'>");
+        var colBtn = $("<div class = 'col-sm-2'>");
         var button = $("<button>");
         button.addClass("saveBtn");
         button.text("Save");
-        col3.append(button);
+        colBtn.append(button);
 
-        row.append(col1, col2, col3);
+        row.append(colTime, colText, colBtn);
         $("#planner").append(row);
         $("#currentHour").text()
     }
